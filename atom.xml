@@ -3,11 +3,11 @@
   <title>徐南木bolg</title>
   
   <subtitle>木木心屋</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="https://xunanmu.gitee.io/blog/"/>
+  <link href="http://blog.xunanmu.com/"/>
   <updated>2019-09-17T13:14:28.227Z</updated>
-  <id>https://xunanmu.gitee.io/blog/</id>
+  <id>http://blog.xunanmu.com/</id>
   
   <author>
     <name>徐南木</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://xunanmu.gitee.io/blog/2019/09/17/hello-world/"/>
-    <id>https://xunanmu.gitee.io/blog/2019/09/17/hello-world/</id>
+    <link href="http://blog.xunanmu.com/2019/09/17/hello-world/"/>
+    <id>http://blog.xunanmu.com/2019/09/17/hello-world/</id>
     <published>2019-09-17T13:14:28.227Z</published>
     <updated>2019-09-17T13:14:28.227Z</updated>
     
