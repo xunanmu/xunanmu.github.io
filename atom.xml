@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xunanmu.com/"/>
-  <updated>2019-09-17T13:14:28.227Z</updated>
+  <updated>2019-09-20T12:49:50.881Z</updated>
   <id>http://blog.xunanmu.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scanf()和printf()函数详解</title>
+    <link href="http://blog.xunanmu.com/2019/09/20/scanf-he-printf-han-shu-xiang-jie/"/>
+    <id>http://blog.xunanmu.com/2019/09/20/scanf-he-printf-han-shu-xiang-jie/</id>
+    <published>2019-09-20T12:34:45.000Z</published>
+    <updated>2019-09-20T12:49:50.881Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;scanf与printf用法详解&quot;&gt;&lt;a href=&quot;#scanf与printf用法详解&quot; class=&quot;headerlink&quot; title=&quot;scanf与printf用法详解&quot;&gt;&lt;/a&gt;scanf与printf用法详解&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C语言" scheme="http://blog.xunanmu.com/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="编程基础" scheme="http://blog.xunanmu.com/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
