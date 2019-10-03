@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>数据结构浅谈</title>
+      <link href="/2019/10/03/shu-ju-jie-gou-qian-tan/"/>
+      <url>/2019/10/03/shu-ju-jie-gou-qian-tan/</url>
+      
+        <content type="html"><![CDATA[<p>数据结构是啥呢?</p><p>答案: 在12月里面找</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程基础 </tag>
+            
+            <tag> C语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言文件操作</title>
       <link href="/2019/10/03/c-yu-yan-wen-jian-cao-zuo/"/>
       <url>/2019/10/03/c-yu-yan-wen-jian-cao-zuo/</url>

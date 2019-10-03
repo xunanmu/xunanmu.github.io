@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-10-03T14:00:43.172Z</updated>
+  <updated>2019-10-03T14:22:02.356Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据结构浅谈</title>
+    <link href="/2019/10/03/shu-ju-jie-gou-qian-tan/"/>
+    <id>/2019/10/03/shu-ju-jie-gou-qian-tan/</id>
+    <published>2019-10-03T14:15:38.000Z</published>
+    <updated>2019-10-03T14:22:02.356Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;数据结构是啥呢?&lt;/p&gt;
+&lt;p&gt;答案: 在12月里面找&lt;/p&gt;
+&lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="编程基础" scheme="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="C语言" scheme="/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>C语言文件操作</title>
