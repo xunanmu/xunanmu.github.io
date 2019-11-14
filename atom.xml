@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>徐南木bolg</title>
+  <title>徐南木</title>
   
   <subtitle>南木心屋</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-10-03T14:22:02.356Z</updated>
+  <updated>2019-11-14T14:09:35.207Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>c语言链表封装</title>
+    <link href="/2019/11/01/lian-biao-feng-zhuang/"/>
+    <id>/2019/11/01/lian-biao-feng-zhuang/</id>
+    <published>2019-11-01T10:58:11.000Z</published>
+    <updated>2019-11-14T14:09:35.207Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;链表基本介绍&quot;&gt;&lt;a href=&quot;#链表基本介绍&quot; class=&quot;headerlink&quot; title=&quot;链表基本介绍&quot;&gt;&lt;/a&gt;链表基本介绍&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;我们都学过链表,单链表,循环链表,双向链表.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="编程基础" scheme="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="C语言" scheme="/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java日志</title>
+    <link href="/2019/10/03/java-ri-zhi/"/>
+    <id>/2019/10/03/java-ri-zhi/</id>
+    <published>2019-10-03T14:39:02.000Z</published>
+    <updated>2019-10-03T14:40:18.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;其实我Java挺菜的真的菜&lt;/p&gt;
+&lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="/categories/Java/"/>
+    
+    
+      <category term="编程基础" scheme="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构浅谈</title>
@@ -55,7 +116,7 @@
     <link href="/2019/10/03/c-yu-yan-wen-jian-cao-zuo/"/>
     <id>/2019/10/03/c-yu-yan-wen-jian-cao-zuo/</id>
     <published>2019-10-03T11:24:14.000Z</published>
-    <updated>2019-10-03T14:00:43.172Z</updated>
+    <updated>2019-11-14T14:10:32.842Z</updated>
     
     <summary type="html">
     
@@ -85,7 +146,7 @@
     <link href="/2019/09/20/scanf-he-printf-han-shu-xiang-jie/"/>
     <id>/2019/09/20/scanf-he-printf-han-shu-xiang-jie/</id>
     <published>2019-09-20T12:34:45.000Z</published>
-    <updated>2019-09-30T12:39:12.481Z</updated>
+    <updated>2019-11-14T14:10:12.234Z</updated>
     
     <summary type="html">
     
