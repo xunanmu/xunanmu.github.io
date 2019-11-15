@@ -25,11 +25,16 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
         
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -411,6 +416,29 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/4.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">C语言文件操作</div>
+                    <div class="description center-align">
+                    
+                        
+数据的输入和输出几乎伴随着每个 C 语言程序，所谓输入就是从“源端”获取数据，所谓输出可以理解为向“终端”写入数据。这里的源端可以是键盘、鼠标、硬盘、光盘、扫描仪等输入设备，终端可以是显示器、硬盘、打印机等输出设备。在 C 语言中，把这些
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/10/03/c-yu-yan-wen-jian-cao-zuo/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/12.jpg');">
         <div class="container">
             <div class="row">
@@ -427,29 +455,6 @@ int printf ( co
                     </div>
                     <div class="cover-btns">
                         <a href="/2019/09/20/scanf-he-printf-han-shu-xiang-jie/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/4.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
-                    <div class="title center-align">C语言文件操作</div>
-                    <div class="description center-align">
-                    
-                        
-数据的输入和输出几乎伴随着每个 C 语言程序，所谓输入就是从“源端”获取数据，所谓输出可以理解为向“终端”写入数据。这里的源端可以是键盘、鼠标、硬盘、光盘、扫描仪等输入设备，终端可以是显示器、硬盘、打印机等输出设备。在 C 语言中，把这些
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2019/10/03/c-yu-yan-wen-jian-cao-zuo/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -502,7 +507,7 @@ $(function () {
     let autoCarousel = function() {
         carouselIntervalId = setInterval(function () {
             coverSlider.carousel('next');
-        }, 5000);
+        }, 3000);
     };
     autoCarousel();
     
@@ -644,6 +649,120 @@ $(function () {
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/11/03/feng-zhuang-queue/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="C语言封装queue">
+                            
+                            <span class="card-title">C语言封装queue</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                封装Queue思路
+这个思路和前面stack封装差不多,我说说细节吧。
+
+
+enqueue():  L.getTail()
+dequeue():  L.removeHead()
+front():  L.getHead()
+empty(): 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/数据结构/" class="post-category" target="_blank">
+                                    数据结构
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/编程基础/" target="_blank">
+                            <span class="chip bg-color">编程基础</span>
+                        </a>
+                        
+                        <a href="/tags/C语言/" target="_blank">
+                            <span class="chip bg-color">C语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/11/02/feng-zhuang-stack/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="C语言封装stack">
+                            
+                            <span class="card-title">C语言封装stack</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                封装stack基本思路
+我们上一篇已经把链表封装了,现在封装stack基本思路是内套一个链表,在写个stack结构体封装他的基本操作函数.
+
+
+push():  可以利用LinkedList的addHead()函数.
+pop():  用L.
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/数据结构/" class="post-category" target="_blank">
+                                    数据结构
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/编程基础/" target="_blank">
+                            <span class="chip bg-color">编程基础</span>
+                        </a>
+                        
+                        <a href="/tags/C语言/" target="_blank">
+                            <span class="chip bg-color">C语言</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -927,7 +1046,7 @@ int printf ( co
         <div class="col s12 m8 l8 copy-right">
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.7k</span>&nbsp;字
+                class="white-color">10.6k</span>&nbsp;字
             
             
             

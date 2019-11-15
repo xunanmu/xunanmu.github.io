@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-11-14T14:09:35.207Z</updated>
+  <updated>2019-11-15T10:57:46.482Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>C语言封装queue</title>
+    <link href="/2019/11/03/feng-zhuang-queue/"/>
+    <id>/2019/11/03/feng-zhuang-queue/</id>
+    <published>2019-11-03T11:32:08.000Z</published>
+    <updated>2019-11-15T10:57:46.482Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;封装Queue思路&quot;&gt;&lt;a href=&quot;#封装Queue思路&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="编程基础" scheme="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="C语言" scheme="/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言封装stack</title>
+    <link href="/2019/11/02/feng-zhuang-stack/"/>
+    <id>/2019/11/02/feng-zhuang-stack/</id>
+    <published>2019-11-02T09:31:53.000Z</published>
+    <updated>2019-11-15T10:57:22.674Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;封装stack基本思路&quot;&gt;&lt;a href=&quot;#封装stack基本思路&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="编程基础" scheme="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="C语言" scheme="/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>c语言链表封装</title>
     <link href="/2019/11/01/lian-biao-feng-zhuang/"/>
     <id>/2019/11/01/lian-biao-feng-zhuang/</id>
     <published>2019-11-01T10:58:11.000Z</published>
-    <updated>2019-11-14T14:09:35.207Z</updated>
+    <updated>2019-11-15T09:32:51.248Z</updated>
     
     <summary type="html">
     
