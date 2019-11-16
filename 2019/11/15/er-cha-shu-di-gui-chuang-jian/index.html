@@ -4,15 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C语言封装queue, hexo">
-    <meta name="description" content="封装Queue思路
-这个思路和前面stack封装差不多,我说说细节吧。
-
-
-enqueue():  L.getTail()
-dequeue():  L.removeHead()
-front():  L.getHead()
-empty(): ">
+    <meta name="keywords" content="二叉树--递归创建, hexo">
+    <meta name="description" content="
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +16,7 @@ empty(): ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C语言封装queue | 徐南木</title>
+    <title>二叉树--递归创建 | 徐南木</title>
     <link rel="icon" type="image/png" href="/medias/avatar.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -310,13 +306,13 @@ empty(): ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C语言封装queue
+                        二叉树--递归创建
                     </div>
                 </div>
             </div>
@@ -455,21 +451,21 @@ empty(): ">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-03
+                    2019-11-15
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        408
+                        52
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -485,90 +481,7 @@ empty(): ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="封装Queue思路"><a href="#封装Queue思路" class="headerlink" title="封装Queue思路"></a>封装Queue思路</h2><blockquote>
-<p>这个思路和前面<a href="http://blog.xunanmu.com/2019/11/02/feng-zhuang-stack/#toc-heading-1" target="_blank" rel="noopener">stack</a>封装差不多,我说说细节吧。</p>
-</blockquote>
-<ul>
-<li><code>enqueue()</code>:  L.getTail()</li>
-<li><code>dequeue()</code>:  L.removeHead()</li>
-<li><code>front()</code>:  L.getHead()</li>
-<li><code>empty()</code>:  L.emprt()</li>
-<li><code>clean()</code>:  L.clean()</li>
-</ul>
-<p><strong>还有其他操作你可以自己添加, 比如遍历队列, 或者把这个队列封装成双向队列等</strong></p>
-<h2 id="Queue函数实现"><a href="#Queue函数实现" class="headerlink" title="Queue函数实现"></a>Queue函数实现</h2><h3 id="Queue-h头文件"><a href="#Queue-h头文件" class="headerlink" title="Queue.h头文件"></a>Queue.h头文件</h3><blockquote>
-<p>我们同样定义头文件,对于头文件知识可以翻前面前面<a href="http://blog.xunanmu.com/2019/11/01/lian-biao-feng-zhuang/#toc-heading-2" target="_blank" rel="noopener">&lt;&lt;C语言封装链表&gt;&gt;</a>这篇。</p>
-</blockquote>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//</span>
-<span class="token comment" spellcheck="true">// Created by 徐南木 on 2019/11/3.</span>
-<span class="token comment" spellcheck="true">//</span>
-
-<span class="token macro property">#<span class="token directive keyword">ifndef</span> DATASTRUCT_QUEUE_H</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> DATASTRUCT_QUEUE_H</span>
-
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"LinkedList.h"</span></span>
-
-<span class="token keyword">typedef</span> <span class="token keyword">struct</span> Queue Queue<span class="token punctuation">;</span>
-
-<span class="token keyword">struct</span> Queue<span class="token punctuation">{</span>
-    LinkedList L<span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>enqueue<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">,</span>DataType<span class="token operator">*</span> dataType<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>dequeue<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>length<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>empty<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>clean<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    DataType<span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">*</span>front<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-Queue <span class="token function">initQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment" spellcheck="true">//DATASTRUCT_QUEUE_H</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Queue-c函数文件"><a href="#Queue-c函数文件" class="headerlink" title="Queue.c函数文件"></a>Queue.c函数文件</h3><blockquote>
-<p>这个和前面stack是一样的我直接贴代码。对于双端队列你可以自行添加</p>
-</blockquote>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//</span>
-<span class="token comment" spellcheck="true">// Created by 徐南木 on 2019/11/3.</span>
-<span class="token comment" spellcheck="true">//</span>
-
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"Queue.h"</span></span>
-
-<span class="token keyword">static</span> Status <span class="token function">enqueue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">,</span>DataType<span class="token operator">*</span> dataType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span><span class="token function">addTail</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token operator">-></span>L<span class="token punctuation">,</span>dataType<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> Status <span class="token function">dequeue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span><span class="token function">removeHead</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token operator">-></span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> Status <span class="token function">length</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> Status <span class="token function">empty</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> Status <span class="token function">clean</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span><span class="token function">clean</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token operator">-></span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> DataType<span class="token operator">*</span> <span class="token function">getfront</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span><span class="token function">getHead</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token operator">-></span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-Queue <span class="token function">initQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    Queue Q<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>L<span class="token operator">=</span><span class="token function">initLinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>enqueue<span class="token operator">=</span>enqueue<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>dequeue<span class="token operator">=</span>dequeue<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>length<span class="token operator">=</span>length<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>empty<span class="token operator">=</span>empty<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>getfront<span class="token operator">=</span>getfront<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> Q<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>现在我们把队列也封装了，下面构造二叉树我们可以直接使用它们了:happy:</strong></p>
-<p><strong>如果有错,请联系告诉我,谢谢了!</strong></p>
-<script>
+                <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -748,9 +661,9 @@ Queue <span class="token function">initQueue</span><span class="token punctuatio
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C语言封装queue》
+                    《二叉树--递归创建》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/03/feng-zhuang-queue/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/15/er-cha-shu-di-gui-chuang-jian/" property="cc:attributionName"
                rel="cc:attributionURL">
                 徐南木
             </a> 采用
@@ -791,7 +704,7 @@ Queue <span class="token function">initQueue</span><span class="token punctuatio
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-11-03T19-32-08',
+        id: '2019-11-15T20-35-33',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -816,28 +729,27 @@ Queue <span class="token function">initQueue</span><span class="token punctuatio
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/04/er-cha-shu-gai-nian-pian/">
+                <a href="/2019/11/15/er-cha-shu-fei-di-gui-chuang-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="二叉树--概念篇">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="二叉树--非递归创建">
                         
-                        <span class="card-title">二叉树--概念篇</span>
+                        <span class="card-title">二叉树--非递归创建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言
-写这个主要是以后我考研可能要用,死记一下这个概念.
-
-定义
-二叉树是n(n&gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树组成。下面展示了一棵普通二叉树
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-15
                         </span>
                         <span class="publish-author">
                             
@@ -873,29 +785,27 @@ Queue <span class="token function">initQueue</span><span class="token punctuatio
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/02/feng-zhuang-stack/">
+                <a href="/2019/11/15/er-cha-shu-fei-di-gui-bian-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="C语言封装stack">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="二叉树--非递归遍历">
                         
-                        <span class="card-title">C语言封装stack</span>
+                        <span class="card-title">二叉树--非递归遍历</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            封装stack基本思路
-我们上一篇已经把链表封装了,现在封装stack基本思路是内套一个链表,在写个stack结构体封装他的基本操作函数.
-
-
-push():  可以利用LinkedList的addHead()函数.
-pop():  用L.
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-15
                             </span>
                         <span class="publish-author">
                             

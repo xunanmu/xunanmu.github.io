@@ -4,15 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C语言封装queue, hexo">
-    <meta name="description" content="封装Queue思路
-这个思路和前面stack封装差不多,我说说细节吧。
+    <meta name="keywords" content="二叉树--概念篇, hexo">
+    <meta name="description" content="前言
+写这个主要是以后我考研可能要用,死记一下这个概念.
 
-
-enqueue():  L.getTail()
-dequeue():  L.removeHead()
-front():  L.getHead()
-empty(): ">
+定义
+二叉树是n(n&amp;gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树组成。下面展示了一棵普通二叉树">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +17,7 @@ empty(): ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C语言封装queue | 徐南木</title>
+    <title>二叉树--概念篇 | 徐南木</title>
     <link rel="icon" type="image/png" href="/medias/avatar.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -310,13 +307,13 @@ empty(): ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C语言封装queue
+                        二叉树--概念篇
                     </div>
                 </div>
             </div>
@@ -455,21 +452,21 @@ empty(): ">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-03
+                    2019-11-04
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        408
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        4 分
                     </div>
                     
                 
@@ -485,89 +482,119 @@ empty(): ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="封装Queue思路"><a href="#封装Queue思路" class="headerlink" title="封装Queue思路"></a>封装Queue思路</h2><blockquote>
-<p>这个思路和前面<a href="http://blog.xunanmu.com/2019/11/02/feng-zhuang-stack/#toc-heading-1" target="_blank" rel="noopener">stack</a>封装差不多,我说说细节吧。</p>
+                <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>写这个主要是以后我考研可能要用,死记一下这个概念.</p>
 </blockquote>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p><strong>二叉树</strong>是<code>n(n&gt;=0)</code>个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树组成。<br>下面展示了一棵普通二叉树：</p>
+</blockquote>
+<pre><code>                 A
+               /   \
+              B     C
+             / \   / \
+            D   E F   G
+           / \       /
+          H   I     J</code></pre><h4 id="二叉树特点"><a href="#二叉树特点" class="headerlink" title="二叉树特点"></a>二叉树特点</h4><p>由二叉树定义以及图示分析得出二叉树有以下特点：</p>
+<ol>
+<li>每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。</li>
+<li>左子树和右子树是有顺序的，次序不能任意颠倒。</li>
+<li>即使树中某结点只有一棵子树，也要区分它是左子树还是右子树。</li>
+</ol>
+<h4 id="二叉树性质"><a href="#二叉树性质" class="headerlink" title="二叉树性质"></a>二叉树性质</h4><ol>
+<li><p>在二叉树的第i层上最多有2^i-1^ 个节点 。（i&gt;=1）</p>
+</li>
+<li><p>二叉树中如果深度为k,那么最多有2^k-1^个节点。(k&gt;=1）</p>
+</li>
+<li><p>n<del>0</del>=n<del>2</del>+1  n<del>0</del>表示度数为0的节点数，n<del>2</del>表示度数为2的节点数。</p>
+</li>
+<li><p>在完全二叉树中，具有n个节点的完全二叉树的深度为[log<del>2</del>^n^]+1，其中[log<del>2</del>^n^]是向下取整。</p>
+</li>
+<li><p>若对含 n 个结点的完全二叉树从上到下且从左至右进行 1 至 n 的编号，则对完全二叉树中任意一个编号为 i 的结点有如下特性：</p>
 <ul>
-<li><code>enqueue()</code>:  L.getTail()</li>
-<li><code>dequeue()</code>:  L.removeHead()</li>
-<li><code>front()</code>:  L.getHead()</li>
-<li><code>empty()</code>:  L.emprt()</li>
-<li><code>clean()</code>:  L.clean()</li>
+<li>若 i=1，则该结点是二叉树的根，无双亲, 否则，编号为 [i/2] 的结点为其双亲结点;</li>
+<li>若 2i&gt;n，则该结点无左孩子，  否则，编号为 2i 的结点为其左孩子结点；</li>
+<li>若 2i+1&gt;n，则该结点无右孩子结点，  否则，编号为2i+1 的结点为其右孩子结点。</li>
 </ul>
-<p><strong>还有其他操作你可以自己添加, 比如遍历队列, 或者把这个队列封装成双向队列等</strong></p>
-<h2 id="Queue函数实现"><a href="#Queue函数实现" class="headerlink" title="Queue函数实现"></a>Queue函数实现</h2><h3 id="Queue-h头文件"><a href="#Queue-h头文件" class="headerlink" title="Queue.h头文件"></a>Queue.h头文件</h3><blockquote>
-<p>我们同样定义头文件,对于头文件知识可以翻前面前面<a href="http://blog.xunanmu.com/2019/11/01/lian-biao-feng-zhuang/#toc-heading-2" target="_blank" rel="noopener">&lt;&lt;C语言封装链表&gt;&gt;</a>这篇。</p>
+</li>
+</ol>
+<h4 id="斜树"><a href="#斜树" class="headerlink" title="斜树"></a>斜树</h4><p><strong>斜树</strong>：所有的结点都只有左子树的二叉树叫左斜树。所有结点都是只有右子树的二叉树叫右斜树。这两者统称为斜树。</p>
+<ol>
+<li><p><strong>左斜树</strong></p>
+<pre><code>                        A
+                       /
+                      B
+                     /
+                    C
+                   /
+                  D</code></pre></li>
+<li><p><strong>右斜树</strong></p>
+<pre><code>              A
+               \
+                B
+                 \
+                  C</code></pre></li>
+</ol>
+<h4 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h4><p><strong>满二叉树</strong>：在一棵二叉树中。如果所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上，这样的二叉树称为满二叉树。<br>    满二叉树的特点有：</p>
+<ol>
+<li><p>叶子只能出现在最下一层。出现在其它层就不可能达成平衡。</p>
+</li>
+<li><p>非叶子结点的度一定是2。</p>
+</li>
+<li><p>在同样深度的二叉树中，满二叉树的结点个数最多，叶子数最多。</p>
+</li>
+</ol>
+<pre><code>                 A
+               /   \
+              B     C
+             / \   / \
+            D   E F   G</code></pre><h4 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h4><p><strong>完全二叉树</strong>：对一颗具有n个结点的二叉树按层编号，如果编号为i(1&lt;=i&lt;=n)的结点与同样深度的满二叉树中编号为i的结点在二叉树中位置完全相同，则这棵二叉树称为完全二叉树。<br> 下面展示一棵完全二叉树:</p>
+<pre><code>                 A
+               /   \
+              B     C
+             / \   / 
+            D   E F   </code></pre><p><strong>特点</strong>：</p>
+<ol>
+<li><p>叶子结点只能出现在最下层和次下层。</p>
+</li>
+<li><p>最下层的叶子结点集中在树的左部。</p>
+</li>
+<li><p>倒数第二层若存在叶子结点，一定在右部连续位置。</p>
+</li>
+<li><p>如果结点度为1，则该结点只有左孩子，即没有右子树。</p>
+</li>
+<li><p>同样结点数目的二叉树，完全二叉树深度最小。</p>
+</li>
+</ol>
+<p><strong>注</strong>：<code>满二叉树一定是完全二叉树，但反过来不一定成立。</code></p>
+<h4 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h4><blockquote>
+<p>二叉树的遍历一个重点考查的知识点</p>
 </blockquote>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//</span>
-<span class="token comment" spellcheck="true">// Created by 徐南木 on 2019/11/3.</span>
-<span class="token comment" spellcheck="true">//</span>
-
-<span class="token macro property">#<span class="token directive keyword">ifndef</span> DATASTRUCT_QUEUE_H</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> DATASTRUCT_QUEUE_H</span>
-
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"LinkedList.h"</span></span>
-
-<span class="token keyword">typedef</span> <span class="token keyword">struct</span> Queue Queue<span class="token punctuation">;</span>
-
-<span class="token keyword">struct</span> Queue<span class="token punctuation">{</span>
-    LinkedList L<span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>enqueue<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">,</span>DataType<span class="token operator">*</span> dataType<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>dequeue<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>length<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>empty<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Status</span> <span class="token punctuation">(</span><span class="token operator">*</span>clean<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    DataType<span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">*</span>front<span class="token punctuation">)</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-Queue <span class="token function">initQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment" spellcheck="true">//DATASTRUCT_QUEUE_H</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Queue-c函数文件"><a href="#Queue-c函数文件" class="headerlink" title="Queue.c函数文件"></a>Queue.c函数文件</h3><blockquote>
-<p>这个和前面stack是一样的我直接贴代码。对于双端队列你可以自行添加</p>
+<p><strong>二叉树的遍历</strong>是指从二叉树的根结点出发，按照某种次序依次访问二叉树中的所有结点，使得每个结点被访问一次，且仅被访问一次。<br> 二叉树的访问次序可以分为四种：</p>
+<pre class="line-numbers language-JAVA"><code class="language-JAVA">/*               A
+               /   \
+              B     C
+             / \   / \
+            D   E F   G
+           / \       /
+          H   I     J
+ */
+/**
+ * 前序是 父节点->左子树->右子树, A B D H I E C F G J
+ * 中序是 左子树->父节点->右子树, H D I B E A F C J G
+ * 后序是 左子树->右子树->父节点, H I D E B F J G C A
+ * 层次是 自上而下一层层访问节点, A B C D E F G H I J
+ * */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="遍历常考考点"><a href="#遍历常考考点" class="headerlink" title="遍历常考考点"></a>遍历常考考点</h4><blockquote>
+<p>对于二叉树的遍历有一类典型题型。</p>
 </blockquote>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//</span>
-<span class="token comment" spellcheck="true">// Created by 徐南木 on 2019/11/3.</span>
-<span class="token comment" spellcheck="true">//</span>
-
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"Queue.h"</span></span>
-
-<span class="token keyword">static</span> Status <span class="token function">enqueue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">,</span>DataType<span class="token operator">*</span> dataType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span><span class="token function">addTail</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token operator">-></span>L<span class="token punctuation">,</span>dataType<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> Status <span class="token function">dequeue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span><span class="token function">removeHead</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token operator">-></span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> Status <span class="token function">length</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> Status <span class="token function">empty</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> Status <span class="token function">clean</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span><span class="token function">clean</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token operator">-></span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">static</span> DataType<span class="token operator">*</span> <span class="token function">getfront</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Q<span class="token operator">-></span>L<span class="token punctuation">.</span><span class="token function">getHead</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Q<span class="token operator">-></span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-Queue <span class="token function">initQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    Queue Q<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>L<span class="token operator">=</span><span class="token function">initLinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>enqueue<span class="token operator">=</span>enqueue<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>dequeue<span class="token operator">=</span>dequeue<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>length<span class="token operator">=</span>length<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>empty<span class="token operator">=</span>empty<span class="token punctuation">;</span>
-    Q<span class="token punctuation">.</span>getfront<span class="token operator">=</span>getfront<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> Q<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>现在我们把队列也封装了，下面构造二叉树我们可以直接使用它们了:happy:</strong></p>
-<p><strong>如果有错,请联系告诉我,谢谢了!</strong></p>
+<ol>
+<li><p>已知前序遍历序列和中序遍历序列，确定一棵二叉树。</p>
+</li>
+<li><p>已知后序遍历序列和中序遍历序列，确定一棵二叉树。</p>
+<p><strong>注</strong>：已知前序遍历序列和后序遍历序列，不可以唯一确定一棵二叉树。</p>
+</li>
+</ol>
+<p>二叉树基本概念写完。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -748,9 +775,9 @@ Queue <span class="token function">initQueue</span><span class="token punctuatio
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C语言封装queue》
+                    《二叉树--概念篇》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/03/feng-zhuang-queue/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/04/er-cha-shu-gai-nian-pian/" property="cc:attributionName"
                rel="cc:attributionURL">
                 徐南木
             </a> 采用
@@ -791,7 +818,7 @@ Queue <span class="token function">initQueue</span><span class="token punctuatio
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-11-03T19-32-08',
+        id: '2019-11-04T20-29-24',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -816,28 +843,30 @@ Queue <span class="token function">initQueue</span><span class="token punctuatio
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/04/er-cha-shu-gai-nian-pian/">
+                <a href="/2019/11/15/er-cha-shu-di-gui-bian-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="二叉树--概念篇">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="二叉树--递归遍历">
                         
-                        <span class="card-title">二叉树--概念篇</span>
+                        <span class="card-title">二叉树--递归遍历</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             前言
-写这个主要是以后我考研可能要用,死记一下这个概念.
+前面我们讲了四种二叉树遍历方式,本文主要是以递归方式遍历二叉树,非递归方式请看下一篇.
 
-定义
-二叉树是n(n&gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树组成。下面展示了一棵普通二叉树
+                 A
+               /   \
+              B     C
+          
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-15
                         </span>
                         <span class="publish-author">
                             
@@ -873,29 +902,31 @@ Queue <span class="token function">initQueue</span><span class="token punctuatio
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/02/feng-zhuang-stack/">
+                <a href="/2019/11/03/feng-zhuang-queue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="C语言封装stack">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="C语言封装queue">
                         
-                        <span class="card-title">C语言封装stack</span>
+                        <span class="card-title">C语言封装queue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            封装stack基本思路
-我们上一篇已经把链表封装了,现在封装stack基本思路是内套一个链表,在写个stack结构体封装他的基本操作函数.
+                            封装Queue思路
+这个思路和前面stack封装差不多,我说说细节吧。
 
 
-push():  可以利用LinkedList的addHead()函数.
-pop():  用L.
+enqueue():  L.getTail()
+dequeue():  L.removeHead()
+front():  L.getHead()
+empty(): 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-03
                             </span>
                         <span class="publish-author">
                             
@@ -1065,6 +1096,13 @@ pop():  用L.
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
