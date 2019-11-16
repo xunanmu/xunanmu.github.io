@@ -87,7 +87,7 @@
     <link href="/2019/11/15/er-cha-shu-fei-di-gui-bian-li/"/>
     <id>/2019/11/15/er-cha-shu-fei-di-gui-bian-li/</id>
     <published>2019-11-15T12:34:50.000Z</published>
-    <updated>2019-11-15T12:34:50.096Z</updated>
+    <updated>2019-11-16T15:07:13.081Z</updated>
     
     <summary type="html">
     
@@ -95,11 +95,8 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;p&gt;前面讲了二叉树的递归遍历,今天来说说非递归遍历&lt;/p&gt;
+&lt;h3 id=&quot;头文件准备&quot;&gt;&lt;a href=&quot;#头文件准备&quot; class=&quot;headerlink&quot; title=&quot;头文件准备&quot;&gt;&lt;/a&gt;头文件准备&lt;/h3&gt;&lt;pre class=&quot;line-numbers
         
       
     
@@ -120,7 +117,7 @@
     <link href="/2019/11/15/er-cha-shu-di-gui-bian-li/"/>
     <id>/2019/11/15/er-cha-shu-di-gui-bian-li/</id>
     <published>2019-11-15T12:34:40.000Z</published>
-    <updated>2019-11-16T08:53:02.640Z</updated>
+    <updated>2019-11-16T13:39:18.202Z</updated>
     
     <summary type="html">
     
