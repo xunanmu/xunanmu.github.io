@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <meta name="keywords" content="二叉树--非递归遍历, hexo">
     <meta name="description" content="前面讲了二叉树的递归遍历,今天来说说非递归遍历
-头文件准备#include &amp;lt;stdio.h&gt;
-#include &#34;Stack.h&#34;
-#include &#34;Queue.h&#34;
+头文件准备
+如果你不清楚下面头文件请移步，《C语言封装stack》，《C语言封装Queue》
 
-#define true  (char)1
-#define ">
+#include &amp;lt;stdio.h&gt;
+#include &#34;Stack.h&#34;
+#includ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -39,8 +39,7 @@
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -461,14 +460,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        498
+                        1.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        7 分
                     </div>
                     
                 
@@ -485,7 +484,10 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>前面讲了二叉树的递归遍历,今天来说说非递归遍历</p>
-<h3 id="头文件准备"><a href="#头文件准备" class="headerlink" title="头文件准备"></a>头文件准备</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<h3 id="头文件准备"><a href="#头文件准备" class="headerlink" title="头文件准备"></a>头文件准备</h3><blockquote>
+<p>如果你不清楚下面头文件请移步，<a href="http://blog.xunanmu.com/2019/11/02/feng-zhuang-stack/" target="_blank" rel="noopener">《C语言封装stack》</a>，<a href="http://blog.xunanmu.com/2019/11/03/feng-zhuang-queue/" target="_blank" rel="noopener">《C语言封装Queue》</a></p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"Stack.h"</span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"Queue.h"</span></span>
 
@@ -497,31 +499,34 @@
     <span class="token keyword">char</span> data<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> BinaryTree <span class="token operator">*</span>leftChild<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> BinaryTree <span class="token operator">*</span>rightChild<span class="token punctuation">;</span>
-<span class="token punctuation">}</span> binaryTree_size<span class="token punctuation">,</span> <span class="token operator">*</span>BinaryTree<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><ol>
-<li><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">preOrderTraversal_1</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-    Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">do</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span> T<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            T <span class="token operator">=</span> T<span class="token operator">-></span>leftChild<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            T <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            T <span class="token operator">=</span> T<span class="token operator">-></span>rightChild<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span> <span class="token operator">||</span> T<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li></li>
-</ol>
-<pre class="line-numbers language-c"><code class="language-c">   <span class="token keyword">void</span> <span class="token function">preOrderTraversal_2</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span> binaryTree_size<span class="token punctuation">,</span> <span class="token operator">*</span>BinaryTree<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><blockquote>
+<p>1.方法一是常规思路，是按照前序先访问<code>父节点</code> 把他压入stack，在访问其左孩子，直到左孩子为Null把其出栈访问他的右孩子；继续重复操作访问其左孩子，直到访问完所有节点。</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c">   <span class="token keyword">void</span> <span class="token function">preOrderTraversal_1</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
            <span class="token keyword">return</span><span class="token punctuation">;</span>
+       Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">do</span> <span class="token punctuation">{</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span> T<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               T <span class="token operator">=</span> T<span class="token operator">-></span>leftChild<span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+           <span class="token keyword">else</span> <span class="token punctuation">{</span>
+               T <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               T <span class="token operator">=</span> T<span class="token operator">-></span>rightChild<span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+       <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span> <span class="token operator">||</span> T<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p>2.方法2思路不管左右是否为空通通以<code>满二叉</code>压入栈，首先把根节点压入栈，然后弹出根节点判断他是不是空节点如果是空就不访问，栈空直接循环结束；如果不为空就访问他，并先压入右孩子再压左孩子，有的为什么先压右孩子？。。。。。。因为熟悉栈的同学都知道的栈是先压后出的。</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c">   <span class="token keyword">void</span> <span class="token function">preOrderTraversal_2</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">//习惯性敲为Null返回条件，这个判断可以删掉的</span>
+           <span class="token keyword">return</span><span class="token punctuation">;</span>  
        Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
        s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span> T<span class="token punctuation">)</span><span class="token punctuation">;</span>
        <span class="token keyword">do</span> <span class="token punctuation">{</span>
@@ -533,25 +538,27 @@
                s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span> T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
            <span class="token punctuation">}</span>
        <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="3">
-<li><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">preOrderTraversal_3</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-    Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span>
-            s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span> T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span>
-            T <span class="token operator">=</span> T<span class="token operator">-></span>leftChild<span class="token punctuation">;</span>
-        <span class="token keyword">else</span>
-            T <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">inOrderTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p>3.第三个方法和第一个方法刚思路类似只不过处理节点刚好相反。我们可以每次访问该节点的时候把他的右孩子先压入，然后再访问他左孩子，直到他左孩子为Null时弹出他的右孩子继续重复操作访问完所有节点。</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c">   <span class="token keyword">void</span> <span class="token function">preOrderTraversal_3</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
+           <span class="token keyword">return</span><span class="token punctuation">;</span>
+       Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">while</span> <span class="token punctuation">(</span>T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span>
+               s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span> T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span>
+               T <span class="token operator">=</span> T<span class="token operator">-></span>leftChild<span class="token punctuation">;</span>
+           <span class="token keyword">else</span>
+               T <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span></code></pre>
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><blockquote>
+<p>思路很简单：他和<code>前序的方法一</code>结构几乎一样，按照中序思路先访问左孩子，那么我们就把左孩子一直压，直到他为左孩子为空时，把他出栈访问，然后访问他右孩子继续压他右孩子的左孩子；如果没有右孩子就出栈继续重复操作。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">inOrderTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -567,9 +574,13 @@
             T <span class="token operator">=</span> T<span class="token operator">-></span>rightChild<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span> <span class="token operator">||</span> T<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>1.</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">postOrderTraversal_1</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>注释</strong>：你们也可以仿照<code>前序的方法2和方法3</code>来写，这里我就不重复说了，他们结构几乎都一样，只是细节有点小差别。</p>
+</blockquote>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><blockquote>
+<p>1.后序遍历时由于访问完左右子树后才能访问根结点，因此需要将根结点在栈内保留到左右子树被访问后，才能访问。我们这里可以利用<code>stack的思路</code>，在父节点这先不访问，把他压入栈，如果他的右孩子不为Null压入栈一直压右孩子，否则压入左孩子。这里单栈不好操作，我们用<code>双栈遍历后序</code>，具体操作，一个栈访问，一个栈压入，栈<code>S1</code>先压入父节点，然后判断左右孩子不为Null压入左右孩子；另一个栈<code>S2</code>压入父节点，然后<code>S1</code>把栈顶弹出（<strong>注意</strong>：这里<code>栈top</code>已经不是父节点了而是他的子节点），继续重复操作。</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">postOrderTraversal_1</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     Stack s1 <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -589,32 +600,64 @@
         s2<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="2">
-<li><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">postOrderTraversal_2</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
- <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
-     <span class="token keyword">return</span><span class="token punctuation">;</span>
- Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- BinaryTree pre<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
- s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-     <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token operator">==</span>T<span class="token operator">-></span>rightChild<span class="token operator">||</span>pre<span class="token operator">==</span>T<span class="token operator">-></span>rightChild<span class="token operator">||</span>pre<span class="token operator">==</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span>
-     <span class="token punctuation">{</span>
-         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-         s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-         pre<span class="token operator">=</span>T<span class="token punctuation">;</span>
-     <span class="token punctuation">}</span> <span class="token keyword">else</span><span class="token punctuation">{</span>
-         <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span>
-             s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
-         <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span>
-             s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
-     T<span class="token operator">=</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-<h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">levelTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p>2.首先将整棵二叉树的根结点入栈。取栈顶结点，在这里我们需要在定义一个变量pre代表前面一个访问的结点，若其不存在左右孩子，或存在左孩子或右孩子，但其左子结点和右子结点都被访问过了，则访问此结点，并将他从栈中弹出。若非上述两种情况，则将其的右子结点和左子结点依次入栈。重复上述操作，直到栈为空，遍历结束。</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">postOrderTraversal_2</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    BinaryTree pre<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+    s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token operator">==</span>T<span class="token operator">-></span>rightChild<span class="token operator">||</span>pre<span class="token operator">==</span>T<span class="token operator">-></span>rightChild<span class="token operator">||</span>pre<span class="token operator">==</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            pre<span class="token operator">=</span>T<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span>
+                s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span>
+                s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        T<span class="token operator">=</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p>3.思路和方法2类似：需要将根结点在栈内保留到左右子树被访问后，我们先一直压他的左孩子，到尾时就访问此节点，然后访问他的右子树。<strong>注意：我们同样需要在定义一个变量pre代表前面一个访问的结点，当pre与栈顶结点的右子树结点相同时，则不再将右子树结点压入栈中</strong>否则就呵呵哒了！原因就是<br>：当右子树弹出后遇到根结点又会将右子树结点压入栈中，造成死循环。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">postOrderTraversal_3</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    Stack s <span class="token operator">=</span> <span class="token function">initStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    BinaryTree pre<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+    s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>BinaryTree<span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">(</span>BinaryTree<span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>BinaryTree<span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-></span>rightChild<span class="token operator">==</span><span class="token constant">NULL</span><span class="token operator">||</span>
+                <span class="token punctuation">(</span><span class="token punctuation">(</span>BinaryTree<span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-></span>rightChild<span class="token operator">==</span>pre<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>BinaryTree<span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                pre<span class="token operator">=</span><span class="token punctuation">(</span>BinaryTree<span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>BinaryTree<span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-></span>rightChild<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">(</span>BinaryTree<span class="token punctuation">)</span>s<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</blockquote>
+<p><strong>代码格式，咳咳咳！我太懒了不想书写了，可能C语言看着有点怪，但是其他语言看着就很简单了，例如c艹</strong></p>
+<h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h3><blockquote>
+<p>层次就非常简单了，利用queue操作，我们先把根入队，然后把他出队访问，判断他左右孩子不为Null入队，然后重复操作。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">levelTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     Queue q<span class="token operator">=</span><span class="token function">initQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -628,7 +671,9 @@
             q<span class="token punctuation">.</span><span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">,</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
         q<span class="token punctuation">.</span><span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span></code></pre>
+<p>有同学问为什么要用非递归方法，递归明显代码更简洁清晰，这个嘛？那些高效的算法代码几乎都很目涩，看着脑壳大，但是人家算100000！只要0.02s。。。我们0.02s估计连1000！阶乘也没有算出来。下面👇🏻给大家推荐一篇文章<a href="http://blog.csdn.net/laoyang360/article/details/7855860" target="_blank" rel="noopener">深究递归和迭代的区别、联系、优缺点及实例对比</a></p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -873,32 +918,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/15/er-cha-shu-di-gui-chuang-jian/">
+                <a href="/2019/11/15/er-cha-shu-fei-di-gui-bian-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="二叉树--递归创建">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="二叉树--非递归遍历">
                         
-                        <span class="card-title">二叉树--递归创建</span>
+                        <span class="card-title">二叉树--非递归遍历</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            前面讲了二叉树的递归遍历,今天来说说非递归遍历
+头文件准备
+如果你不清楚下面头文件请移步，《C语言封装stack》，《C语言封装Queue》
+
+#include &lt;stdio.h>
+#include "Stack.h"
+#includ
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -911,6 +960,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1133,7 +1183,7 @@
         <div class="col s12 m8 l8 copy-right">
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.2k</span>&nbsp;字
+                class="white-color">15.5k</span>&nbsp;字
             
             
             
