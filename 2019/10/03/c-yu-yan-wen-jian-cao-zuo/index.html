@@ -560,12 +560,12 @@
 </tr>
 </tbody></table>
 <p>如果按照二进制文件形式存储，则把数据 123 看成整型数，如果该系统中整型数占 4 个字节，则数据 123 二进制存储形式的 4 个字节如下。</p>
-<pre class=" language-c"><code class="language-c"><span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0111</span> <span class="token number">1011</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0111</span> <span class="token number">1011</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="3-文件的打开与关闭"><a href="#3-文件的打开与关闭" class="headerlink" title="3.文件的打开与关闭"></a>3.文件的打开与关闭</h2><blockquote>
 <p>C 程序中对任何文件进行操作，都必须先“打开”文件，即打开流；操作完成后，需“关闭”文件，即关闭流。可调用标准库 <code>stdio.h</code> 中的<code>fopen()</code> 和 <code>fclose()</code> 函数实现。</p>
 </blockquote>
 <p><strong>打开函数 fopen() 的原型如下</strong></p>
-<pre class=" language-c"><code class="language-c">FILE <span class="token operator">*</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>filename<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>mode<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c">FILE <span class="token operator">*</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>filename<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>mode<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>函数参数：</strong></p>
 <ul>
 <li><code>filename</code>: 文件名，包括路径，如果不显式含有路径，则表示当前路径。例如，“D:\f1.txt”表示 D 盘根目录下的文件 f1.txt 文件。“f2.doc”表示当前目录下的文件 f2.doc。</li>
@@ -677,10 +677,10 @@
 </ol>
 <p><code>不同的打开模式对应不同的操作方式，使用时需仔细规划。</code></p>
 <p><strong>关闭函数 fclose 的原型如下。</strong></p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">fclose</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>fp<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">fclose</span><span class="token punctuation">(</span>FILE <span class="token operator">*</span>fp<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>函数参数：</strong>fp:已打开的文件指针。</p>
 <p><strong>返回值：</strong>正常关闭，返回否则返回 EOF(-1)。<br><strong>示例</strong></p>
-<pre class=" language-c"><code class="language-c">FILE fpl<span class="token operator">=</span><span class="token function">fopen</span><span class="token punctuation">(</span>”D<span class="token punctuation">:</span>\\fl<span class="token punctuation">.</span>txt”，”r”）<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//以只读模式打开文件 fl.txt</span>
+<pre class="line-numbers language-c"><code class="language-c">FILE fpl<span class="token operator">=</span><span class="token function">fopen</span><span class="token punctuation">(</span>”D<span class="token punctuation">:</span>\\fl<span class="token punctuation">.</span>txt”，”r”）<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//以只读模式打开文件 fl.txt</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token operator">==</span>fpl<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//以返回值fpl判断是否打开成功，如果为NULL表示失败</span>
 <span class="token punctuation">{</span>
     <span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"Failed to open the file !\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -693,7 +693,7 @@ FILE fp2<span class="token operator">=</span><span class="token function">fopen<
     <span class="token function">exit</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token function">fclose</span> <span class="token punctuation">(</span>fpl<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//关闭fpl指针对应文件（fl.txt)的流</span>
-<span class="token function">fclose</span> <span class="token punctuation">(</span>fp2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//关闭fp2指针对应文件（f2.txt)的流</span></code></pre>
+<span class="token function">fclose</span> <span class="token punctuation">(</span>fp2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//关闭fp2指针对应文件（f2.txt)的流</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="关于换行符"><a href="#关于换行符" class="headerlink" title="关于换行符"></a>关于换行符</h2><blockquote>
 <p>我们知道在UNIX下是没有回车符（\r）的，只有换行符（\n），而C语言诞生于UNIX（Linux即面向开源的UNIX，Mac OS也是UNIX发展而来的，而Windows是从MS-DOS发展而来，与前两者不同），所以C语言的源代码文件中也是以 \n 表示换行。</p>
 <blockquote>

@@ -531,7 +531,7 @@
 <h3 id="数组创建二叉树"><a href="#数组创建二叉树" class="headerlink" title="数组创建二叉树"></a>数组创建二叉树</h3><blockquote>
 <p>遍历前我们先说说如何简单的建立一颗二叉树.</p>
 </blockquote>
-<h4 id="二叉树节点定义"><a href="#二叉树节点定义" class="headerlink" title="二叉树节点定义"></a>二叉树节点定义</h4><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*由于c语言没有bool型我们宏定义bool*/</span>
+<h4 id="二叉树节点定义"><a href="#二叉树节点定义" class="headerlink" title="二叉树节点定义"></a>二叉树节点定义</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*由于c语言没有bool型我们宏定义bool*/</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> true  (char)1</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> false (char)0</span>
 <span class="token keyword">typedef</span> <span class="token keyword">char</span> Status<span class="token punctuation">;</span>
@@ -542,7 +542,7 @@
     DataType data<span class="token punctuation">;</span>                <span class="token comment" spellcheck="true">//数据域</span>
     <span class="token keyword">struct</span> BinaryTree <span class="token operator">*</span>leftChild<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//左孩子指针</span>
     <span class="token keyword">struct</span> BinaryTree <span class="token operator">*</span>rightChild<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//右孩子指针</span>
-<span class="token punctuation">}</span>binaryTree_size<span class="token punctuation">,</span><span class="token operator">*</span>BinaryTree<span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span>binaryTree_size<span class="token punctuation">,</span><span class="token operator">*</span>BinaryTree<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="创建思路"><a href="#创建思路" class="headerlink" title="创建思路"></a>创建思路</h4><ol>
 <li><p>我们用数组思路,来建立一颗二叉树,请看下表二叉树和地址关系</p>
 <table>
@@ -583,7 +583,7 @@
 <p>不要慌,我们就判断一下<code>T[10]</code>在不在这棵树中,哦不,T[10]是肯定不在的.因为T[9]后面已经没有任何节点了,所以就判断 <em>所取<code>父节点P</code>大于Tree数组长度时就退出</em>.</p>
 </li>
 <li><p>代码实现</p>
-<pre class=" language-c"><code class="language-c">
+<pre class="line-numbers language-c"><code class="language-c">
 <span class="token keyword">char</span> <span class="token function">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">char</span> c<span class="token punctuation">;</span>
@@ -629,9 +629,9 @@ Status <span class="token function">levelCreat</span><span class="token punctuat
         p<span class="token operator">=</span><span class="token operator">&amp;</span>T<span class="token punctuation">[</span><span class="token operator">++</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//把父节点赋值p,index表示当前父节点</span>
     <span class="token punctuation">}</span>
     <span class="token operator">*</span>root<span class="token operator">=</span>T<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>我们可以把上面重复的代码优化一下,设置一个flag=0.利用flag=~flag和do-while特性.</p>
-<pre class=" language-c"><code class="language-c">Status <span class="token function">levelCreat</span><span class="token punctuation">(</span>BinaryTree <span class="token operator">*</span>root<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="line-numbers language-c"><code class="language-c">Status <span class="token function">levelCreat</span><span class="token punctuation">(</span>BinaryTree <span class="token operator">*</span>root<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>root<span class="token punctuation">)</span>                      <span class="token comment" spellcheck="true">//判断根节点是否存在,存在返回错误</span>
         <span class="token keyword">return</span> false<span class="token punctuation">;</span>
     DataType dataType <span class="token operator">=</span> <span class="token function">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//创建接收数据的指针,数据错误return NULL</span>
@@ -664,56 +664,56 @@ Status <span class="token function">levelCreat</span><span class="token punctuat
         p<span class="token operator">=</span><span class="token operator">&amp;</span>T<span class="token punctuation">[</span><span class="token operator">++</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//把父节点赋值p,index表示当前父节点</span>
     <span class="token punctuation">}</span>
     <span class="token operator">*</span>root<span class="token operator">=</span>T<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><blockquote>
 <p>递归思想：通俗的说就是从二叉树的根结点出发，当第一次到达结点时就输出结点数据，按照先向左在向右的方向访问。</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">preOrderTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">preOrderTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">/*显示结点数据，可以更改为其他对结点操作*/</span>
     <span class="token function">preOrderTraversal</span><span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*再先序遍历左子树*/</span>
     <span class="token function">preOrderTraversal</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*最后先序遍历右子树*/</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><blockquote>
 <p>递归思想：就是从二叉树的根结点出发，当第二次到达结点时就输出结点数据，按照先向左在向右的方向访问。</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">inOrderTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">inOrderTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     <span class="token function">inOrderTraversal</span><span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*中序遍历左子树*/</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">/*显示结点数据，可以更改为其他对结点操作*/</span>
     <span class="token function">inOrderTraversal</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*最后中序遍历右子树*/</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><blockquote>
 <p>递归思想：就是从二叉树的根结点出发，当第三次到达结点时就输出结点数据，按照先向左在向右的方向访问。</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">postOrderTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">postOrderTraversal</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     <span class="token function">postOrderTraversal</span><span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*先后序遍历左子树*/</span>
     <span class="token function">postOrderTraversal</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*再后续遍历右子树*/</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">/*显示结点数据，可以更改为其他对结点操作*/</span></code></pre>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span>T<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">/*显示结点数据，可以更改为其他对结点操作*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><blockquote>
 <p>层次还用写吗?直接循环数组就结束了:happy:,hh开玩笑的,本文数组建立有点特殊可以直接循环遍历,但是一般二叉树都是二叉链式结构.我这里说一下递归层次遍历通用办法,比前面三种稍微复杂.</p>
 </blockquote>
 <ol>
 <li><p>我们要知道树的深度才能遍历,也就是树的层数,下面是用递归求深度算法：<br>我们可以从根节点即左右子树来理解二叉树的深度。对于任意一棵非空二叉树，有如下四种情况：<br>（1）如果一颗树只有一个节点，它的深度是1；<br>（2）如果根节点只有左子树而没有右子树，那么二叉树的深度应该是其左子树的深度加1；<br>（3）如果根节点只有右子树而没有左子树，那么二叉树的深度应该是其右树的深度加1；<br>（4）如果根节点既有左子树又有右子树，那么二叉树的深度应该是其左右子树的深度较大值加1；</p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">treeDepth</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">treeDepth</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>            
         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> leftDepth <span class="token operator">=</span> <span class="token function">treeDepth</span><span class="token punctuation">(</span>T<span class="token operator">-></span>leftChild<span class="token punctuation">)</span><span class="token punctuation">;</span> 
     <span class="token keyword">int</span> rightDepth <span class="token operator">=</span> <span class="token function">treeDepth</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rightChild<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> leftDepth<span class="token operator">></span>rightDepth<span class="token operator">?</span> <span class="token punctuation">(</span>leftDepth<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>rightDepth<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><blockquote>
 <p>递归思想：先一层一层的找，每层从根节点递归找左右子树的末端</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">printLevelNode</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">,</span> <span class="token keyword">int</span> level<span class="token punctuation">)</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">printLevelNode</span><span class="token punctuation">(</span>BinaryTree T<span class="token punctuation">,</span> <span class="token keyword">int</span> level<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
@@ -731,7 +731,7 @@ Status <span class="token function">levelCreat</span><span class="token punctuat
     <span class="token keyword">int</span> depth <span class="token operator">=</span> <span class="token function">treeDepth</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//获取树的深度</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>depth<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">//遍历每一层节点</span>
         <span class="token function">printLevelNode</span><span class="token punctuation">(</span>T<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <p>好了写到这了,对了二叉树还有其他方法遍历,例如<code>垂序遍历</code>类似广义表遍历不过他是左右对称遍历.还有他们的非递归方法。</p>

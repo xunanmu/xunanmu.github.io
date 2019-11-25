@@ -509,25 +509,25 @@ int printf ( co">
 <p>printf() 是 C 语言标准库函数，用于将格式化后的字符串输出到标准输出。标准输出，即标准输出文件，对应终端的屏幕。printf() 申明于头文件 stdio.h。</p>
 </blockquote>
 <p><strong>函数原型</strong></p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">printf</span> <span class="token punctuation">(</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">printf</span> <span class="token punctuation">(</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>返回值</strong></p>
 <blockquote>
 <p>正确返回输出的字符总数，错误返回负值。与此同时，输入输出流错误标志将被置值，可由指示器函数 ferror(FILE *stream) 来检查输入输出流的错误标志，如果 ferror() 返回一个非零值，表示出错。</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> num<span class="token operator">=</span><span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"Hello World!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>输出结果</code><br>Hello World!<br>13<br><strong>调用格式</strong></p>
 <blockquote>
 <p>字符串常量原样输出，在显示中起提示作用。输出表列中给出了各个输出项，要求格式控制字符串和各输出项在数量和类型上应该一一对应。其中格式控制字符串是以 % 开头的字符串，在 % 后面跟有各种格式控制符，以说明输出数据的类型、宽度、精度等。</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"格式化字符串"</span><span class="token punctuation">,</span> 输出表列<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"格式化字符串"</span><span class="token punctuation">,</span> 输出表列<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">%</span><span class="token punctuation">[</span>flags<span class="token punctuation">]</span><span class="token punctuation">[</span>width<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">.</span>prec<span class="token punctuation">]</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span>type
-<span class="token operator">%</span><span class="token punctuation">[</span>标志<span class="token punctuation">]</span><span class="token punctuation">[</span>最小宽度<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">.</span>精度<span class="token punctuation">]</span><span class="token punctuation">[</span>类型长度<span class="token punctuation">]</span>类型</code></pre>
+<span class="token operator">%</span><span class="token punctuation">[</span>标志<span class="token punctuation">]</span><span class="token punctuation">[</span>最小宽度<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">.</span>精度<span class="token punctuation">]</span><span class="token punctuation">[</span>类型长度<span class="token punctuation">]</span>类型<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-1-类型-type"><a href="#1-1-类型-type" class="headerlink" title="1.1 类型(type)"></a>1.1 类型(type)</h3><blockquote>
 <p>首先说明类型，因为类型是格式控制字符串的重中之重，是必不可少的组成部分，其它的选项都是可选的。type 用于规定输出数据的类型，含义如下：</p>
 </blockquote>
@@ -689,7 +689,7 @@ int printf ( co">
 <blockquote>
 <p>示例:</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%5d\n"</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">//默认右对齐,左边补空格</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%5d\n"</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">//默认右对齐,左边补空格</span>
 
 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%-5d\n"</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">//左对齐,右边补空格</span>
 
@@ -703,16 +703,16 @@ int printf ( co">
 
 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%g %#g\n"</span><span class="token punctuation">,</span><span class="token number">1000.0</span><span class="token punctuation">,</span><span class="token number">1000.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//保留小数点后后的0</span>
 
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%05d\n"</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment" spellcheck="true">//前面补0</span></code></pre>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%05d\n"</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment" spellcheck="true">//前面补0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果</strong></p>
-<pre class=" language-c"><code class="language-c"> <span class="token number">1000</span>
+<pre class="line-numbers language-c"><code class="language-c"> <span class="token number">1000</span>
 <span class="token number">1000</span> 
 <span class="token operator">+</span><span class="token number">1000</span> <span class="token operator">-</span><span class="token number">1000</span>
  <span class="token number">1000</span> <span class="token operator">-</span><span class="token number">1000</span>
 <span class="token number">3e8</span> <span class="token number">0x3e8</span>
 <span class="token number">1000</span> <span class="token number">1000</span><span class="token punctuation">.</span>
 <span class="token number">1000</span> <span class="token number">1000.0</span>
-<span class="token number">01000</span></code></pre>
+<span class="token number">01000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="1-3-输出最小宽度（width）"><a href="#1-3-输出最小宽度（width）" class="headerlink" title="1.3 输出最小宽度（width）"></a>1.3 输出最小宽度（width）</h3><blockquote>
 <p>用十进制整数来表示输出的最少位数。若实际位数多于指定的宽度，则按实际位数输出，若实际位数少于定义的宽度则补以空格或0。width的可能取值如下：</p>
 </blockquote>
@@ -755,17 +755,17 @@ int printf ( co">
 </tr>
 </tbody></table>
 <p><strong>示例:</strong></p>
-<pre class=" language-c"><code class="language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.8d\n"</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//不足指定宽度补前导0，效果等同于%08d</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.8d\n"</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//不足指定宽度补前导0，效果等同于%08d</span>
 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.8f\n"</span><span class="token punctuation">,</span><span class="token number">1000.123456789</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//超过精度，截断</span>
 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.8f\n"</span><span class="token punctuation">,</span><span class="token number">1000.123456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//不足精度，补后置0</span>
 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.8g\n"</span><span class="token punctuation">,</span><span class="token number">1000.123456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//最大有效数字为8位</span>
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.8s\n"</span><span class="token punctuation">,</span>“abcdefghij”<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//超过指定长度截断</span></code></pre>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.8s\n"</span><span class="token punctuation">,</span>“abcdefghij”<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//超过指定长度截断</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结果</strong></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token number">00001000</span>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token number">00001000</span>
 <span class="token number">1000.12345679</span>
 <span class="token number">1000.12345600</span>
 <span class="token number">1000.1235</span>
-abcdefgh</code></pre>
+abcdefgh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>注意:</strong><code>在对浮点数和整数截断时，存在四舍五入。</code></p>
 <h3 id="1-5-类型长度（length）"><a href="#1-5-类型长度（length）" class="headerlink" title="1.5 类型长度（length）"></a>1.5 类型长度（length）</h3><blockquote>
 <p>类型长度指明待输出数据的长度。因为相同类型可以有不同的长度，比如整型有 16bits 的 short int，32bits的int，也有 64bits 的 long int，浮点型有32bits的单精度 float 和 64bits 的双精度 double。为了指明同一类型的不同长度，于是乎，类型长度（length）应运而生，成为格式控制字符串的一部分。</p>
@@ -822,13 +822,13 @@ abcdefgh</code></pre>
 <p>相对于 printf 函数，scanf 函数就简单得多。scanf 函数的功能与 printf 函数正好相反，执行格式化输入功能。即 scanf 函数从格式串的最左端开始，每遇到一个字符便将其与下一个输入字符进行“匹配”，如果二者匹配（相同）则继续，否则结束对后面输入的处理。而每遇到一个格式说明符，便按该格式说明符所描述的格式对其后的输入值进行转换，然后将其存于与其对应的输入地址中.</p>
 </blockquote>
 <p><strong>函数原型</strong></p>
-<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">printf</span> <span class="token punctuation">(</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">printf</span> <span class="token punctuation">(</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>返回值</strong></p>
 <blockquote>
 <p>当格式化字符串format到达末尾或者读取的输入不再匹配格式字符串所指定的类型时，输入就停止，并返回被转换的输入值的数目,若在任何输入都没被转换之前文件就到达尾部则返回EOF。</p>
 </blockquote>
 <p><strong>示例</strong></p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">;</span>
@@ -838,7 +838,7 @@ abcdefgh</code></pre>
     num<span class="token operator">=</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> 
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>输入:<br>1 2 3<br>徐南木<br><strong>结果</strong></p>
 <pre><code>1 2 3
 3
@@ -847,22 +847,22 @@ abcdefgh</code></pre>
 <blockquote>
 <p>由于scanf是采用可变参数的机制，所以函数无法验证它们的指针参数是否为正确的类型，所以函数假定它们是正确的，（因此格式字符必须和后面的指针指向的类型保持一致）如果指针参数的类型和输入数据的类型不匹配则结果值就是垃圾。而且邻近的变量也有可能被改写</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"格式化字符串"</span><span class="token punctuation">,</span> 输入表列<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"格式化字符串"</span><span class="token punctuation">,</span> 输入表列<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">%</span><span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span><span class="token punctuation">[</span>width<span class="token punctuation">]</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span> type_char
-<span class="token operator">%</span><span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span><span class="token punctuation">[</span>宽度<span class="token punctuation">]</span><span class="token punctuation">[</span>长度<span class="token punctuation">]</span>类型符</code></pre>
+<span class="token operator">%</span><span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span><span class="token punctuation">[</span>宽度<span class="token punctuation">]</span><span class="token punctuation">[</span>长度<span class="token punctuation">]</span>类型符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>提示:</strong>数据类型和格式输入可参考<code>printf()</code>函数.</p>
 <h3 id="2-1-捕获规则"><a href="#2-1-捕获规则" class="headerlink" title="2.1 捕获规则"></a>2.1 捕获规则</h3><blockquote>
 <p>在出现一个转换说明符时，scanf函数会忽略前面的所有空白字符（除了%c），然后再捕获相应的数据类型，一直到最大长度或者出现空白字符</p>
 </blockquote>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d,%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d,%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>允许的输入格式为：1,2\n；1,  2\n；1,\n2\n；</code><br><code>不允许的输入格式：1 ,2\n；   \n1,2\n； 1,2\n；</code>  </p>
 <h3 id="2-2-scanf-中的空格和-n"><a href="#2-2-scanf-中的空格和-n" class="headerlink" title="2.2 scanf()中的空格和\n"></a>2.2 scanf()中的空格和\n</h3><blockquote>
 <p>scanf中的空格的作用不仅仅是捕获一个空格，它表示捕获所有空白字符（空格，换行，制表符等）直到出现一个非空白字符（\n一样），例如</p>
 </blockquote>
 <p>我们想接受一个ip:端口的输入<br>需要接受的输入格式为：<code>ip:端口</code>，<code>ip: 端口</code>，<code>ip : 端口</code>，<code>ip\n:\n端口</code><br>如果代码为</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d.%d.%d.%d:%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span>`</code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d.%d.%d.%d:%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span>`<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>则只能捕获的格式：<code>ip:端口</code>，<code>ip: 端口</code>，<code>ip:\n端口</code>;<br>如果我们将代码改为</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d.%d.%d.%d :%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d.%d.%d.%d :%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>ip<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>:</code>前面多了一个空格,则可以捕获上述所有情况.</p>
 <h3 id="2-3-正则表达"><a href="#2-3-正则表达" class="headerlink" title="2.3 正则表达"></a>2.3 正则表达</h3><blockquote>
 <p>scanf()函数正则表达严格意义上不是,只能算伪正则表达且只能用于<code>string</code></p>
@@ -876,54 +876,54 @@ abcdefgh</code></pre>
 </blockquote>
 <ol>
 <li><p>输入指定范围的小写字母，遇到非法字符立即终止</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[a-z]"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[a-z]"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>输入：xunanmu123<br>输出:<code>xunamu</code></p>
 </li>
 <li><p>获取指定范围的小写字母和数字</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[a-z0-9]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-​<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[a-z0-9]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+​<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>输入：xunanmu123<br>输出：<code>xunanmu123</code></p>
 </li>
 <li><p>获取带空格的自定范围的字符串</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[a-z A-Z0-9]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[a-z A-Z0-9]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>输入：123xu nan mu Blog<br>输出:<code>123xu nan mu Blog</code></p>
 </li>
 <li><p>输入<code>不带</code>空格的自定范围的字符串</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[a-zA-Z0-9]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[a-zA-Z0-9]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>输入：123xu nan mu Blog<br>输出:<code>123xu</code></p>
 </li>
 </ol>
 <p><strong>注意:scanf()字符串默认空格结束</strong></p>
 <ol start="5">
-<li>获取不包括指定字符的字符<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[^a-z]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<li>获取不包括指定字符的字符<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[^a-z]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 输入：23 徐南木 BLOG Aabc<br>输出：<code>23 徐南木 BLOG A</code></li>
 </ol>
 <p><strong>注意：这种方式可以读入空格</strong></p>
 <ol start="6">
 <li><p>获取一整行字符串，包括空格</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[^\n]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%[^\n]"</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>输入：23 徐南木 BLOG Aabc<br>输出：<code>23 徐南木 BLOG Aabc</code></p>
 </li>
 <li><p>%* 跳过指定范围的字符再读取指定范围的字符</p>
-<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%*[a-z0-9]%[^\n]"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%*[a-z0-9]%[^\n]"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>输入: abc 徐南木  xnm<br>输出:<code>徐南木 xnm</code></p>
 </li>
 <li><p>找了俩道经典的<code>%*``%</code>匹配<br>例1：从<a href="sip:tom@172.18.1.133" target="_blank" rel="noopener">sip:tom@172.18.1.133</a>中提取tom</p>
-<pre class=" language-c"><code class="language-c"> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> url <span class="token operator">=</span> <span class="token string">"&lt;sip:tom@172.18.1.133>"</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> url <span class="token operator">=</span> <span class="token string">"&lt;sip:tom@172.18.1.133>"</span><span class="token punctuation">;</span>
  <span class="token keyword">char</span> uri<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
  <span class="token function">sscanf</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token string">"%*[^:]:%[^@]"</span><span class="token punctuation">,</span> uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>uri<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>例2：从iios/12DDWDFF@122中提取12DDWDFF</p>
-<pre class=" language-c"><code class="language-c"> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> s <span class="token operator">=</span> <span class="token string">"iios/12DDWDFF@122"</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-c"><code class="language-c"> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> s <span class="token operator">=</span> <span class="token string">"iios/12DDWDFF@122"</span><span class="token punctuation">;</span>
  <span class="token keyword">char</span> buf<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
  <span class="token function">sscanf</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token string">"%*[^/]/%[^@]"</span><span class="token punctuation">,</span> buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+ <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <h2 id="3-转义字符"><a href="#3-转义字符" class="headerlink" title="3.转义字符"></a>3.转义字符</h2><blockquote>
@@ -993,7 +993,7 @@ abcdefgh</code></pre>
 </blockquote>
 <p>　　scanf 和 getchar 等函数会在<code>stdin</code> 中读取数据，若上述缓冲区中已存在数据，则直接读取其中的数据，若上述缓冲区为空，则上述函数会挂起，等待数据缓冲的完成( 用户输入回车键或数据缓冲区满后， stdin 会进行数据缓冲，之后上述函数才能继续执行)。 用户一次输入的数据可能会超过 scanf 、getchar 等函数调用所需要的数据，那么所需数据被读取后，剩余的数据仍会存放在缓冲区中，之后的函数调用会直接读取 stdin 中已有的数据。只有当缓冲区为空后，scanf 等函数才会等待用户输入,实际应该是等待<code>stdin</code>的缓冲。<br><strong>解决办法</strong></p>
 <ol>
-<li>最简单就是在scanf()函数扫描前留空格.<pre class=" language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">" %c"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>ch<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<li>最简单就是在scanf()函数扫描前留空格.<pre class="line-numbers language-c"><code class="language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">" %c"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>ch<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li>可以使用 <code>fflush()</code> 函数清理缓冲区。C标准规定 fflush()函数可用来刷新输出（stdout）缓冲区(一般是将缓冲区数据写回存储设备)。但对于标准输入（stdin）则没有明确定义。部分编译器定义了 fflush( stdin )的实现，如微软的VC。也就是不同的编译器对于 fflush( stdin )的支持可能不同。<code>GCC编译器没有定义它的实现，所以不能使用 fflush( stdin )来刷新输入缓冲区。</code></li>
 </ol>
